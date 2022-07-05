@@ -1,22 +1,33 @@
-import { render } from "@testing-library/react";
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class TodoItem extends React.Component {
+class TodoItem extends React.PureComponent {
   render() {
+    const { todo, handleChangeProps, deleteTodoProps } = this.props;
     return (
       <li>
-        <input 
-          type="checkbox" 
-          checked={this.props.todo.completed}
-          onChange={() => this.props.handleChangeProps(this.props.todo.id)}
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => handleChangeProps(todo.id)}
         />
-        <button onClick={() => this.props.deleteTodoProps(this.props.todo.id)}>
+        <button type="button" onClick={() => deleteTodoProps(todo.id)}>
           Delete
         </button>
-        {this.props.todo.title}
+        {todo.title}
       </li>
-    )
+    );
   }
 }
+
+TodoItem.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    completed: PropTypes.bool,
+  }).isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
+};
 
 export default TodoItem;
