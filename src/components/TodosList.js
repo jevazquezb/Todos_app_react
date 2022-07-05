@@ -4,7 +4,9 @@ import TodoItem from './TodoItem';
 
 class TodosList extends React.PureComponent {
   render() {
-    const { todos, handleChangeProps, deleteTodoProps, setUpdate } = this.props;
+    const {
+      todos, handleChangeProps, deleteTodoProps, setUpdate,
+    } = this.props;
     return (
       <ul>
         {todos.map((todo) => (

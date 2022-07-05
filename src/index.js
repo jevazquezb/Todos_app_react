@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import TodoContainer from './components/TodoContainer';
-import "./App.css"
+import './App.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // const element = <h1>Hello from Create React App</h1>

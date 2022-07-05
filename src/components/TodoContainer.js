@@ -63,11 +63,11 @@ class TodoContainer extends React.Component {
 
   setUpdate = (updatedTitle, id) => {
     this.setState((prevState) => ({
-      todos: prevState.todos.map(todo => {
+      todos: prevState.todos.map((todo) => {
         if (todo.id === id) {
           return {
             ...todo,
-            title: updatedTitle, 
+            title: updatedTitle,
           };
         }
         return todo;
@@ -88,7 +88,7 @@ class TodoContainer extends React.Component {
             deleteTodoProps={this.delTodo}
             setUpdate={this.setUpdate}
           />
-        </div>        
+        </div>
       </div>
       // They can be wrapped inside <React.Fragment></React.Fragment> or the shortcut <></>
       // instead of the <div>

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from "./TodoItem.module.css"
+import styles from './TodoItem.module.css';
 
 class TodoItem extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       editing: false,
-    }
+    };
   }
 
   handleEditing = () => {
@@ -17,29 +17,31 @@ class TodoItem extends React.PureComponent {
   }
 
   handleUpdatedDone = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       this.setState({ editing: false });
     }
   }
 
   render() {
-    const { handleChangeProps, deleteTodoProps, setUpdate } = this.props;
-    const { id, title, completed } = this.props.todo;
+    const {
+      todo, handleChangeProps, deleteTodoProps, setUpdate,
+    } = this.props;
+    const { id, title, completed } = todo;
     const { editing } = this.state;
     const completedStyle = {
-      fontStyle: "italic",
-      color: "#595959",
+      fontStyle: 'italic',
+      color: '#595959',
       opacity: 0.4,
-      textDecoration: "line-through",
-    }
+      textDecoration: 'line-through',
+    };
 
-    let viewMode = {}
-    let editMode = {}
+    const viewMode = {};
+    const editMode = {};
 
     if (editing) {
-      viewMode.display = "none";
+      viewMode.display = 'none';
     } else {
-      editMode.display = "none";
+      editMode.display = 'none';
     }
 
     return (
@@ -57,7 +59,7 @@ class TodoItem extends React.PureComponent {
           <span style={completed ? completedStyle : null}>{title}</span>
         </div>
         <input
-          type="text" 
+          type="text"
           style={editMode}
           className={styles.textInput}
           value={title}
