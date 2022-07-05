@@ -4,7 +4,7 @@ import TodoItem from './TodoItem';
 
 class TodosList extends React.PureComponent {
   render() {
-    const { todos, handleChangeProps, deleteTodoProps } = this.props;
+    const { todos, handleChangeProps, deleteTodoProps, setUpdate } = this.props;
     return (
       <ul>
         {todos.map((todo) => (
@@ -13,6 +13,7 @@ class TodosList extends React.PureComponent {
             todo={todo}
             handleChangeProps={handleChangeProps}
             deleteTodoProps={deleteTodoProps}
+            setUpdate={setUpdate}
           />
         ))}
       </ul>
@@ -28,6 +29,7 @@ TodosList.propTypes = {
   })).isRequired,
   handleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
 };
 
 export default TodosList;
