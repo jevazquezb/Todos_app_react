@@ -10,6 +10,10 @@ class TodoItem extends React.PureComponent {
     };
   }
 
+  componentWillUnmount() {
+    console.log('Cleaning up...');
+  }
+
   handleEditing = () => {
     this.setState({
       editing: true,
